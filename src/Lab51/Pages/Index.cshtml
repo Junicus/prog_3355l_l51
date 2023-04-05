@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="space-y-4">
+    <form method="post">
+        @Html.ValidationSummary()
+
+        <div class="flex gap-2">
+            <label>Cantidad de Dolares</label>
+            <input type="number" step="0.01" id="dollarAmount" name="dollarAmount" asp-for="DollarAmount"/>
+            <button type="submit">Convertir</button>
+        </div>
+    </form>
+
+    <div>
+        <div>
+            @if (Model.LastConversionTime != null)
+            {
+                <span>Conversión al @Model.LastConversionTime.Value.ToString("M/d/yyyy h:mm:ss tt")</span>
+            }
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <td class="w-60 green">Mexican Pesos</td>
+                    <td class="w-60 blue">Euros</td>
+                    <td class="w-60 orange">Dominican Pesos</td>
+                </tr>
+                </thead>
+                <tbody>
+                @if (Model.ConvertedAmounts != null)
+                {
+                    <tr>
+                        <td class="green">@Model.ConvertedAmounts.MexicanPesos</td>
+                        <td class="blue">@Model.ConvertedAmounts.Euros</td>
+                        <td class="orange">@Model.ConvertedAmounts.DominicanPesos</td>
+                    </tr>
+                }
+                else
+                {
+                    <tr></tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

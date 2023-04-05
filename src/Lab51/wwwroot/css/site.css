@@ -1,0 +1,30 @@
+.green {
+    background-color: green;
+    color: white;
+}
+
+.blue {
+    background-color: blue;
+    color: white;
+}
+
+.orange {
+    background-color: orange;
+    color: white;
+}
+
+.w-60 {
+    width: 15rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}
